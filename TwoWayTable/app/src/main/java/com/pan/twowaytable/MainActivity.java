@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private String[] titles = {"完成率\n(%)", "销售额\n(元)", "销售目标\n(亿)", "销售套数\n(套)", "销售面积\n(㎡)", "销售均价\n(元/㎡)", "回款率\n(%)", "逾期签约金额\n(元)", "逾期签约套数\n(套)"};
     private String[] cities = {"太原", "天津", "广州", "浙江", "北京", "上海", "江苏", "海南", "福建", "西安", "香河", "安徽", "哈尔滨", "佛山", "重庆", "惠州", "惠东", "包头", "石家庄", "梅州", "郑州"};
     private List<ContentBean> contentBeanList = new ArrayList<>();
-    private HorizontalScrollView scrollView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        scrollView = (HorizontalScrollView) findViewById(R.id.scrollView);
         topRecyclerView = (RecyclerView) findViewById(R.id.topRecyclerView);
         LinearLayoutManager topManager = new LinearLayoutManager(this);
         topManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -156,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public class SelfRemovingOnScrollListener extends RecyclerView.OnScrollListener {
+    private class SelfRemovingOnScrollListener extends RecyclerView.OnScrollListener {
         @Override
         public final void onScrollStateChanged(@NonNull final RecyclerView recyclerView, final int newState) {
             super.onScrollStateChanged(recyclerView, newState);
